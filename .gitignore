@@ -82,4 +82,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-OBJ/*
+/SJTUME/MDK-ARM/SJTUME/*
+/SJTUME/MDK-ARM/SJTUME.uvguix.*
