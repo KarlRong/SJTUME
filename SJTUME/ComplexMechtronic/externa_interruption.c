@@ -13,6 +13,7 @@
 #include <gpio.h>
 #include "utilities_debug.h"
 #include "pwm_server_motor.h"
+#include "steper.h"
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 	fw_printfln("HAL_GPIO_EXTI_Callback %x", GPIO_Pin);
@@ -22,6 +23,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 			  HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 				HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 				pwm_server_motor_set_angle(0, 0);
+				MSD_Move(-300,-200,2);
 			}
 			break;
 		case KEY1_Pin:

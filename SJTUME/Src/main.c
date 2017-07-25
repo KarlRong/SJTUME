@@ -66,7 +66,7 @@ void SystemClock_Config(void);
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
-
+int timer_count = 0;
 /* USER CODE END 0 */
 
 int main(void)
@@ -100,10 +100,14 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM9_Init();
   MX_TIM12_Init();
+  MX_TIM3_Init();
+  MX_TIM4_Init();
+  MX_TIM10_Init();
 
   /* USER CODE BEGIN 2 */
 	InitDebugUart();
 	InitServerMotors();
+	HAL_TIM_Base_Start_IT(&htim4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -114,12 +118,11 @@ int main(void)
 
   /* USER CODE BEGIN 3 */
 //0.0
-		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(LED1_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-		HAL_Delay(100);
-		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LED1_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-		HAL_Delay(100);
+		if(timer_count == 50)
+		{
+			HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+			timer_count = 0;
+		}
 		
 		
   }

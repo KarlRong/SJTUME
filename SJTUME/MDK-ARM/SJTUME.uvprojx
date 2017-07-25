@@ -335,7 +335,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;       ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;       ../Drivers/CMSIS/Include;       ..\ComplexMechtronic</IncludePath>
+              <IncludePath>../Inc;           ../Drivers/STM32F4xx_HAL_Driver/Inc;           ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;           ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;           ../Drivers/CMSIS/Include;           ..\ComplexMechtronic</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -568,6 +568,36 @@
               <FileName>pwm_server_motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ComplexMechtronic\pwm_server_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>stepmotor_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\stepmotor_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>stepmotor_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\stepmotor_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>steper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\steper.c</FilePath>
+            </File>
+            <File>
+              <FileName>steper.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\steper.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\timer.h</FilePath>
             </File>
           </Files>
         </Group>
