@@ -38,11 +38,14 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f4xx_hal.h"
+#include "dma.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
-
+#include "drivers_debuguart.h"
+#include "utilities_debug.h"
+#include "peripheral_define.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -89,11 +92,12 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+	InitDebugUart();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -172,6 +176,7 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 
+
 /* USER CODE END 4 */
 
 /**
@@ -185,6 +190,9 @@ void _Error_Handler(char * file, int line)
   /* User can add his own implementation to report the HAL error return state */
   while(1) 
   {
+		fw_printfln("Error Handler");
+		fw_printf("%s(%d): \r\n", file, line);
+		HAL_Delay(1000);
   }
   /* USER CODE END Error_Handler_Debug */ 
 }
