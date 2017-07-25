@@ -335,7 +335,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc;   ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;   ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;   ../Drivers/CMSIS/Include;   ..\ComplexMechtronic</IncludePath>
+              <IncludePath>../Inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc;       ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;       ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;       ../Drivers/CMSIS/Include;       ..\ComplexMechtronic</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -408,6 +408,11 @@
               <FileName>dma.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Src/dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Src/tim.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -553,6 +558,16 @@
               <FileName>drivers_debuguart.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ComplexMechtronic\drivers_debuguart.h</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_server_ motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\pwm_server_ motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>pwm_server_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\pwm_server_motor.h</FilePath>
             </File>
           </Files>
         </Group>

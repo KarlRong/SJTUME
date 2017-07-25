@@ -15,7 +15,7 @@
 #include "stm32f4xx_hal.h"
 #include "main.h" 
 
-
+void InitServerMotors(void);
 //motorIndex: 
 void pwm_server_motor_init(uint8_t motorIndex);
 void pwm_server_motor_deinit(uint8_t motorIndex);
