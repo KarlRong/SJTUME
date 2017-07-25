@@ -335,7 +335,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Inc;            ../Drivers/STM32F4xx_HAL_Driver/Inc;            ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;            ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;            ../Drivers/CMSIS/Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -394,10 +394,17 @@
               <FileType>1</FileType>
               <FilePath>../Src/main.c</FilePath>
             </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Src/gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>../Src/usart.c</FilePath>
+            </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
           <GroupName>Drivers/STM32F4xx_HAL_Driver</GroupName>
@@ -498,6 +505,34 @@
               <FilePath>../Src/system_stm32f4xx.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>ComplexMechtronic</GroupName>
+          <Files>
+            <File>
+              <FileName>externa_interruption.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\externa_interruption.c</FilePath>
+            </File>
+            <File>
+              <FileName>utilities_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\utilities_debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>utilities_debug.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\utilities_debug.h</FilePath>
+            </File>
+            <File>
+              <FileName>peripheral_define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\peripheral_define.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>
