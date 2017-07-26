@@ -335,7 +335,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;           ../Drivers/STM32F4xx_HAL_Driver/Inc;           ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;           ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;           ../Drivers/CMSIS/Include;           ..\ComplexMechtronic</IncludePath>
+              <IncludePath>../Inc;                ../Drivers/STM32F4xx_HAL_Driver/Inc;                ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;                ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;                ../Drivers/CMSIS/Include;                ..\ComplexMechtronic</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -598,6 +598,26 @@
               <FileName>timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\ComplexMechtronic\timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>drivers_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\drivers_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>drivers_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\drivers_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>drivers_relays.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\ComplexMechtronic\drivers_relays.c</FilePath>
+            </File>
+            <File>
+              <FileName>drivers_relays.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\ComplexMechtronic\drivers_relays.h</FilePath>
             </File>
           </Files>
         </Group>

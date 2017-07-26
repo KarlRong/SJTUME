@@ -114,7 +114,7 @@ void tim4_CallBack(void)
 				srd.target_count = srd.target_count_Z;
 				srd.step_count = 0;
 			  step_flag++; 
-				HAL_TIM_Base_Start_IT(&htim3);	
+				HAL_TIM_Base_Start_IT(&htim10);	
 		}
 		if(step_flag == 7)  
 		{
@@ -159,7 +159,7 @@ void tim3_CallBack(void)
 					step_flag++;
 					HAL_TIM_Base_Stop_IT(&htim3);;
 			}
-			__HAL_TIM_SET_AUTORELOAD(&htim3,new_step_delay-1);//修改重装值
+			__HAL_TIM_SET_AUTORELOAD(&htim3,60);//修改重装值
 			srd.step_count++;
 		}
 	}
@@ -171,38 +171,24 @@ void tim10_CallBack(void)
 	
   // 保存延时周期
   static unsigned int new_step_delay = 50;
-  // 记录new_step_delay中的余数，提高下一步计算的精度
-  static signed int rest = 0;
-  // 记录加速最后一次 参数
-  static signed int last_delay = 0;
+ 
 	if(__HAL_TIM_GET_IT_SOURCE(&htim10,TIM_IT_UPDATE) == SET) //溢出中断
-	{
+
 		PULSE_C_TOGGLE;
 		
 		if(PULSE_C == 0); //如果是半周期，则不做处理，退出中断
 		else			 //一个周期结束 
 		{
-			if(srd.step_count<51)
+			if(srd.step_count_Z<srd.target_count_Z-1)
 			{
-				new_step_delay = Step_Table[srd.step_count];
-			}
-			else if(srd.step_count>=51&&srd.step_count<srd.target_count-51 )
-			{
-					new_step_delay = 10;
-			}
-			else if(srd.step_count>=srd.target_count-51 && srd.step_count<=srd.target_count-1)
-			{
-					new_step_delay =  Step_Table[srd.target_count-1-srd.step_count];
 			}
 			else
 			{
-					step_flag++;
 					HAL_TIM_Base_Stop_IT(&htim10);;
 			}
-			__HAL_TIM_SET_AUTORELOAD(&htim10,new_step_delay-1);//修改重装值
-			srd.step_count++;
+			__HAL_TIM_SET_AUTORELOAD(&htim10,60);//修改重装值
+			srd.step_count_Z++;
 		}
-	}
 	__HAL_TIM_CLEAR_IT(&htim10,TIM_IT_UPDATE);  //清除中断标志位
 }
 

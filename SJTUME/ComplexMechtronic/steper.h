@@ -40,12 +40,14 @@ typedef struct {
   //移动计数
   long step_count_X;
 	long step_count_Y;
+	long step_count_Z;
 	long step_count;
   //移动目标数
   signed int target_count_X;
 	signed int target_count_Y;
 	signed int target_count_Z;
 	signed int target_count;
+	
 } speedRampData;
 
 

@@ -18,8 +18,6 @@ void InitServerMotors()
 	pwm_server_motor_init(0);
 	pwm_server_motor_init(1);
 	pwm_server_motor_init(2);
-	pwm_server_motor_init(3);
-	pwm_server_motor_init(4);
 }
 
 void pwm_server_motor_init(uint8_t motorIndex)
@@ -34,23 +32,11 @@ void pwm_server_motor_init(uint8_t motorIndex)
 		}
 		case 1:
 		{
-			HAL_TIM_PWM_Start(&htim9,TIM_CHANNEL_1);
-			__HAL_TIM_SetCompare(&htim9,TIM_CHANNEL_1,1500);
-			break;
-		}
-		case 2:
-		{
-			HAL_TIM_PWM_Start(&htim9,TIM_CHANNEL_2);
-			__HAL_TIM_SetCompare(&htim9,TIM_CHANNEL_2,1500);
-			break;
-		}
-		case 3:
-		{
 			HAL_TIM_PWM_Start(&htim12,TIM_CHANNEL_1);
 			__HAL_TIM_SetCompare(&htim12,TIM_CHANNEL_1,1500);
 			break;
 		}
-		case 4:
+		case 2:
 		{
 			HAL_TIM_PWM_Start(&htim12,TIM_CHANNEL_2);
 			__HAL_TIM_SetCompare(&htim12,TIM_CHANNEL_2,1500);
@@ -74,27 +60,17 @@ void pwm_server_motor_set_angle(uint8_t motorIndex,float angle)
 	
 	switch(motorIndex)
 	{
-		case 0:
+		case 0://靠外舵机
 		{
 			__HAL_TIM_SetCompare(&htim2,TIM_CHANNEL_1,x);
 			break;
 		}
 		case 1:
 		{
-			__HAL_TIM_SetCompare(&htim9,TIM_CHANNEL_1,x);
-			break;
-		}
-		case 2:
-		{
-			__HAL_TIM_SetCompare(&htim9,TIM_CHANNEL_2,x);
-			break;
-		}
-		case 3:
-		{
 			__HAL_TIM_SetCompare(&htim12,TIM_CHANNEL_1,x);
 			break;
 		}
-		case 4:
+		case 2:
 		{
 			__HAL_TIM_SetCompare(&htim12,TIM_CHANNEL_2,x);
 			break;
