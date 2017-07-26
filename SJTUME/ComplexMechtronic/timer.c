@@ -97,32 +97,6 @@ void tim4_CallBack(void)
 			HAL_TIM_Base_Start_IT(&htim3);	
 			step_flag++;   //进入运行状态			
 		}
-		
-		if(step_flag == 5)   
-		{
-			if(srd.target_count_Z < 0)//逆时针
-				{
-					DIR_C_LOW;   //反转
-					DIR_C_LOW;
-					srd.target_count_Z = -srd.target_count_Z;
-				}
-				else//顺时针
-				{
-					DIR_C_HIGH;
-					DIR_C_HIGH;
-				}
-				srd.target_count = srd.target_count_Z;
-				srd.step_count = 0;
-			  step_flag++; 
-				HAL_TIM_Base_Start_IT(&htim10);	
-		}
-		if(step_flag == 7)  
-		{
-	    step_flag = 0;
-			HAL_TIM_Base_Stop_IT(&htim10);
-		  
-		}			
-		
 }
 
 //定时器3中断服务函数
@@ -168,10 +142,7 @@ void tim3_CallBack(void)
 //定时器3中断服务函数10
 void tim10_CallBack(void)
 {
-	
-  // 保存延时周期
-  static unsigned int new_step_delay = 50;
- 
+	 
 	if(__HAL_TIM_GET_IT_SOURCE(&htim10,TIM_IT_UPDATE) == SET) //溢出中断
 
 		PULSE_C_TOGGLE;
@@ -179,14 +150,13 @@ void tim10_CallBack(void)
 		if(PULSE_C == 0); //如果是半周期，则不做处理，退出中断
 		else			 //一个周期结束 
 		{
-			if(srd.step_count_Z<srd.target_count_Z-1)
+			if(srd.step_count_Z<=srd.target_count_Z-1)
 			{
 			}
 			else
 			{
-					HAL_TIM_Base_Stop_IT(&htim10);;
+					HAL_TIM_Base_Stop_IT(&htim10);
 			}
-			__HAL_TIM_SET_AUTORELOAD(&htim10,60);//修改重装值
 			srd.step_count_Z++;
 		}
 	__HAL_TIM_CLEAR_IT(&htim10,TIM_IT_UPDATE);  //清除中断标志位

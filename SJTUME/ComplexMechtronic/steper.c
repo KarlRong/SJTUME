@@ -2,6 +2,8 @@
 #include "timer.h"
 #include <math.h>
 
+extern TIM_HandleTypeDef htim10;
+
 const char Step_Table[51] = {60,60,60,59,59,59,59,59,58,58,
 															58,57,57,56,55,54,53,52,50,48,
 															47,44,42,40,37,35,33,30,28,26,
@@ -56,11 +58,14 @@ void MSD_Move(signed int step_X,signed int step_Y, char flag)   //  flag == 1:先
 
 void MSD_Z_Move(signed int step_Z)   //  flag == 1:先Y后X    flag == 2:先X后Y
 {
-	step_flag = 1;  //START 1  RUN 2  TURN 3  RUN 4  OVER 5
-	
+	if(step_Z<0)
+	{
+		DIR_C_HIGH;
+		step_Z = -step_Z;
+	}
+	else
+		DIR_C_LOW;
 	srd.target_count_Z = step_Z;
-	srd.target_count=0;
-	srd.step_count=0;
-	
+	HAL_TIM_Base_Start_IT(&htim10);	
 }
 

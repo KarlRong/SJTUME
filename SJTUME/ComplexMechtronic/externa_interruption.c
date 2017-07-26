@@ -29,7 +29,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 				
 				RotateMotorA();
 //				RotateMotorB();
-				MSD_Z_Move(200);
+				MSD_Z_Move(500);
 				MSD_Move(-300,0,2);
 			}
 			break;
@@ -44,7 +44,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
 				RotateMotorA_R();
 //				RotateMotorB_R();
       MSD_Move(0,-300,2);
-				MSD_Z_Move(-200);
+				MSD_Z_Move(-500);
 			}
 			break;
 		case KEY2_Pin:
